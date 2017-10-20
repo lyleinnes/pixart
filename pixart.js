@@ -11,4 +11,4 @@ $setColor.on('click', function() {
 
 for (i = 0; i < 1000; i++) {
   $('body').append("<div class='square'>");
-}
+};
