@@ -10,5 +10,13 @@ $setColor.on('click', function() {
 });
 
 for (i = 0; i < 1000; i++) {
-  $('body').append("<div class='square'>");
+  $box = $('body').append("<div class='square'>");
 };
+
+var body = document.querySelector('body');
+
+body.addEventListener('click', function(event) {
+    if (event.target.className === 'square') {
+      event.target.style.background = $brush.css('background')
+    }
+});
