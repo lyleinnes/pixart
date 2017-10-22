@@ -11,7 +11,7 @@ $setColor.on('click', function() {
   $brush.css('background', $colorField.val());
 });
 
-for (i = 0; i < 1000; i++) {
+for (i = 0; i < 5000; i++) {
   $box = $('body').append("<div class='square'>");
 };
 
@@ -26,11 +26,11 @@ body.addEventListener('mouseover', function(event) {
 $setMovie.on('click', function() {
   event.preventDefault();
   $.ajax({
-      url: 'http://www.omdbapi.com/?apikey=2f6435d9&',
-      method: 'post',
-      data: { apikey: '2f6435d9', t: $movieField}
+      url: 'http://www.omdbapi.com',
+      method: 'get',
+      data: { apikey: '2f6435d9', t: $movieField.val()}
     }).done(function(response) {
-      var $likesCount = $(event.target).closest('.ui-card').find('.likes-count');
-      $likesCount.text(response.likes_count)
+      posterUrl = response.Poster;
+      $brush.css('background-image', "url(" + posterUrl + ")")
     })
 });
